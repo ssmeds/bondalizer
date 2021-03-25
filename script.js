@@ -52,9 +52,9 @@ inputBox.addEventListener("keydown", function (e) {
 })
 
 function findAgent(agent) {
-  agents.forEach(element => {
-    // console.log(element.firstName);
-  });
+  // agents.forEach(element => {
+  //   // console.log(element.firstName);
+  // });
   let foundAgent = agents.find(({
     firstName
   }) => firstName === agent);
