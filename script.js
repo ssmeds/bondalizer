@@ -11,3 +11,59 @@
 
 // Lösningen
 // Lös uppgiften med riktig kod!
+
+let agents = [{
+    firstName: "Stina",
+    lastName: "Smeds"
+  },
+  {
+    firstName: "Fredrik",
+    lastName: "Sundgren"
+  },
+  {
+    firstName: "Buffy",
+    lastName: "Summers"
+  },
+  {
+    firstName: "Dean",
+    lastName: "Winchester"
+  },
+  {
+    firstName: "Sam",
+    lastName: "Winchester"
+  },
+];
+
+// console.log(agents);
+let inputBox = document.createElement("input");
+let agentDisplay = document.createElement("div");
+document.body.appendChild(inputBox);
+document.body.appendChild(agentDisplay);
+
+inputBox.addEventListener("keydown", function (e) {
+  if (e.key == 'Enter') {
+    let agentInput = inputBox.value;
+    let agentCap = agentInput[0].toUpperCase() + agentInput.substr(1);
+    // console.log(agentCap);
+    // console.log(inputBox.value);
+    findAgent(agentCap);
+    inputBox.value = "";
+  }
+})
+
+function findAgent(agent) {
+  agents.forEach(element => {
+    // console.log(element.firstName);
+  });
+  let foundAgent = agents.find(({
+    firstName
+  }) => firstName === agent);
+  // console.log(agent);
+  if (foundAgent != undefined) {
+    // console.log("Found", foundAgent);
+    agentDisplay.insertAdjacentHTML("afterbegin", `<p>The name is ${foundAgent.lastName}, ${foundAgent.firstName} ${foundAgent.lastName}!</p>`);
+  } else {
+    agentDisplay.insertAdjacentHTML("afterbegin", `<p>Agent not found!</p>`);
+  }
+
+}
